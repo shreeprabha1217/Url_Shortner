@@ -23,8 +23,8 @@ public class ShortUrlControllerImpl implements ShortUrlController {
 
     @Override
     public ResponseEntity<ShortenUrlResponse> createShortUrl(@Valid ShortnerUrlRequest request) {
-        String shortUrl = shortUrlService.createShortUrl(request.getLongUrl());
-        return ResponseEntity.ok(new ShortenUrlResponse(shortUrl));
+        ShortenUrlResponse response = shortUrlService.createShortUrl(request);
+        return ResponseEntity.ok(response);
     }
 
     @Override
